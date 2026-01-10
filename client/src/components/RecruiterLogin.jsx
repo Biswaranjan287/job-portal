@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { assets } from '../assets/assets'
+import { AppContext } from '../context/AppContext'
 
 const RecruiterLogin = () => {
 
@@ -12,6 +13,8 @@ const RecruiterLogin = () => {
 
     const [isTextDataSubmited, setIsTextDataSubmited] = useState(false)
 
+    const { setShowRecruiterLogin } = useContext(AppContext)
+
     const onSubmitHandler = (e) => {
         e.preventDefault()
 
@@ -19,6 +22,15 @@ const RecruiterLogin = () => {
             setIsTextDataSubmited(true)
         }
     }
+
+    useEffect(() => {
+        document.body.style.overflow = 'hidden'
+
+        return () => {
+            document.body.style.overflow = 'unset'
+        }
+    }, [])
+
 
     return (
         <div className='absolute top-0 right-0 left-0 bottom-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center'>
@@ -70,6 +82,8 @@ const RecruiterLogin = () => {
                         ? <p className='mt-5 text-center'>Don't have an account? <span className='text-blue-600 cursor-pointer' onClick={() => setState("Sign Up")}>Sign Up</span></p>
                         : <p className='mt-5 text-center'>Already have an account? <span className='text-blue-600 cursor-pointer' onClick={() => setState("Login")}>Login</span></p>
                 }
+
+                <img onClick={e => setShowRecruiterLogin(false)} className='absolute top-5 right-5 cursor-pointer' src={assets.cross_icon} alt="" />
 
             </form>
         </div>

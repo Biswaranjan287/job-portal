@@ -4,34 +4,37 @@ import moment from 'moment'
 
 const ManageJobs = () => {
     return (
-        <div>
-            <div>
-                <table>
+        <div className='container p-4 max-w-5xl'>
+            <div className='overflow-auto'>
+                <table className='min-w-full bg-white border border-gray-200 max-sm:text-sm'>
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Job Title</th>
-                            <th>Date</th>
-                            <th>Location</th>
-                            <th>Applicants</th>
-                            <th>Visible</th>
+                            <th className='py-2 px-4 border-b border-gray-200 text-left max-sm:hidden'>#</th>
+                            <th className='py-2 px-4 border-b border-gray-200 text-left'>Job Title</th>
+                            <th className='py-2 px-4 border-b border-gray-200 text-left max-sm:hidden'>Date</th>
+                            <th className='py-2 px-4 border-b border-gray-200 text-left max-sm:hidden'>Location</th>
+                            <th className='py-2 px-4 border-b border-gray-200 text-center'>Applicants</th>
+                            <th className='py-2 px-4 border-b border-gray-200 text-left'>Visible</th>
                         </tr>
                     </thead>
                     <tbody>
                         {manageJobsData.map((job, index)=>(
-                            <tr key={index}>
-                                <td>{index+1}</td>
-                                <td>{job.title}</td>
-                                <td>{moment(job.date).format('ll')}</td>
-                                <td>{job.location}</td>
-                                <td>{job.applicants}</td>
-                                <td>
-                                    <input type="checkbox" />
+                            <tr key={index} className='text-gray-700'>
+                                <td className='py-2 px-4 border-b border-gray-200 max-sm:hidden'>{index+1}</td>
+                                <td className='py-2 px-4 border-b border-gray-200'>{job.title}</td>
+                                <td className='py-2 px-4 border-b border-gray-200 max-sm:hidden'>{moment(job.date).format('ll')}</td>
+                                <td className='py-2 px-4 border-b border-gray-200 max-sm:hidden'>{job.location}</td>
+                                <td className='py-2 px-4 border-b border-gray-200 text-center'>{job.applicants}</td>
+                                <td className='py-2 px-4 border-b border-gray-200'>
+                                    <input className='scale-125 ml-4' type="checkbox" />
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
+            </div>
+            <div className='mt-4 flex justify-end'>
+                <button className='bg-black text-white py-2 px-4 rounded'>Add new job </button>
             </div>
         </div>
     )

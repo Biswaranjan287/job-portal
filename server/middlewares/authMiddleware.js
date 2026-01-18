@@ -6,7 +6,7 @@ export const protectCompany = async (req, res, next) => {
     const token = req.headers.token
 
     if (!token) {
-        return res.josn({ success: false, message: 'Not authorized, Login again' })
+        return res.json({ success: false, message: 'Not authorized, Login again' })
     }
 
     try {
@@ -18,7 +18,7 @@ export const protectCompany = async (req, res, next) => {
         next()
 
     } catch (error) {
-        res.josn({ success: false, message: error.message })
+        res.json({ success: false, message: error.message })
     }
 
 }

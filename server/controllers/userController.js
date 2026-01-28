@@ -1,3 +1,4 @@
+import Job from "../models/Job.js"
 import JobApplication from "../models/JobApplication.js"
 import User from "../models/User.js"
 
@@ -32,13 +33,13 @@ export const applyForJob = async (req, res) => {
 
     try {
 
-        const isAlreadyApply = await JobApplication.find({ jobId, userId })
+        const isAlreadyApplied = await JobApplication.find({ jobId, userId })
 
-        if (isAlreadyApply > 0) {
+        if (isAlreadyApplied.length > 0) {
             return res.json({ success: false, message: 'Already applied' })
         }
 
-        const jobData = await Job.find(jobId)
+        const jobData = await Job.findById(jobId)
 
         if (!jobData) {
             return res.json({ success: false, message: 'Job not found' })

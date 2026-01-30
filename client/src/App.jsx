@@ -10,6 +10,7 @@ import AddJob from './pages/AddJob'
 import ManageJobs from './pages/ManageJobs'
 import ViewApplications from './pages/ViewApplications'
 import 'quill/dist/quill.snow.css'
+import toast, { Toaster } from 'react-hot-toast';
 
 const App = () => {
 
@@ -18,14 +19,15 @@ const App = () => {
   return (
     <div>
       {showRecruiterLogin && <RecruiterLogin />}
+      <Toaster />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/apply-job/:id' element={<ApplyJob />} />
         <Route path='/applications' element={<Applications />} />
         <Route path='/dashboard' element={<Dashboard />}>
-          <Route path='add-job' element={<AddJob/>}/>
-          <Route path='manage-job' element={<ManageJobs/>}/>
-          <Route path='view-applications' element={<ViewApplications/>}/>
+          <Route path='add-job' element={<AddJob />} />
+          <Route path='manage-job' element={<ManageJobs />} />
+          <Route path='view-applications' element={<ViewApplications />} />
         </Route>
       </Routes>
     </div>

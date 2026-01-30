@@ -24,7 +24,7 @@ const RecruiterLogin = () => {
         e.preventDefault()
 
         if (state === "Sign Up" && !isTextDataSubmited) {
-            setIsTextDataSubmited(true)
+            return setIsTextDataSubmited(true)
         }
 
         try {

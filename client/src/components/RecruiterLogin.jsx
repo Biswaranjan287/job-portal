@@ -26,6 +26,7 @@ const RecruiterLogin = () => {
         if (state === "Sign Up" && !isTextDataSubmited) {
             return setIsTextDataSubmited(true)
         }
+        
 
         try {
 

@@ -27,7 +27,6 @@ const RecruiterLogin = () => {
             return setIsTextDataSubmited(true)
         }
         
-
         try {
 
             if (state === "Login") {

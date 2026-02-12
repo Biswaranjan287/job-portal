@@ -5,7 +5,6 @@ import axios from 'axios'
 import { AppContext } from '../context/AppContext'
 import toast from 'react-hot-toast'
 
-
 const AddJob = () => {
 
     const [title, setTitle] = useState('')

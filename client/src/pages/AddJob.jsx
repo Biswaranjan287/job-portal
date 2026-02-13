@@ -23,10 +23,10 @@ const AddJob = () => {
 
         try {
 
-            const descprition = quillRef.current.root.innerHTML
+            const description = quillRef.current.root.innerHTML
 
             const { data } = await axios.post(backendUrl + '/api/company/post-job',
-                { title, descprition, location, salary, category, level },
+                { title, description, location, salary, category, level },
                 { headers: { token: companyToken } }
             )
 

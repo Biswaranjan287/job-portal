@@ -31,7 +31,7 @@ const App = () => {
             <Route path='view-applications' element={<ViewApplications />} />
           </> : null
           }
-
+          
         </Route>
       </Routes>
     </div>
